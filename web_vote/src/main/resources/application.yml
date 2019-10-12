@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://112.125.25.167:3307/lanjingdb_test?characterEncoding=utf8&useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false
+    username: ljsl
+    password: t#*Wds4TE$6Ab5
+    hikari:
+      read-only: false
+      connection-timeout: 60000
+      idle-timeout: 60000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      login-timeout: 5
+      maximum-pool-size: 60
+      minimum-idle: 10
+  redis:
+    host: 112.125.25.167
+    password: R#*Wds4DE$6Ae5
+    port: 6379
+    database: 1
+    jedis:
+      pool:
+        max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1ms      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 10      # 连接池中的最大空闲连接
+        min-idle: 5       # 连接池中的最小空闲连接
+  rabbitmq:
+    host: 112.125.25.167
+    port: 5672
+    username: dev_user
+    password: Q#3yur96K
+    virtual-host: dev_user_host
+    publisher-confirms: true  #消息发送到交换机确认机制，是否确认回调
+    publisher-returns: true   #消息发送到交换机确认机制，是否返回回调
+#    listener:
+#      simple:
+#        acknowledge-mode: manual  #采用手动应答
+#        retry:
+#          enabled: true #是否支持重试
+
+
+server:
+  servlet:
+    session:
+      timeout: 3600
+  port: 8989
+
+
